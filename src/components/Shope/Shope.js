@@ -31,6 +31,7 @@ const Shope = () => {
   const navigates = () => {
     navigated("/order");
   };
+  //click handelr for get one
   return (
     <div className="container mx-auto row gx-2">
       <div className="row col-md-9">
@@ -41,7 +42,6 @@ const Shope = () => {
       <div className="col-md-3 order-part">
         {
           <Cart cart={cart}>
-            <button>Get one free</button>
             <button onClick={navigates}>Order Sumary</button>
           </Cart>
         }
