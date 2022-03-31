@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import useProduct from "../../hooks/useProduct";
 import { addToDb } from "../../utilities/fakedb";
@@ -26,6 +27,10 @@ const Shope = () => {
     setCart(newCart);
     addToDb(item.id);
   };
+  const navigated = useNavigate();
+  const navigates = () => {
+    navigated("/order");
+  };
   return (
     <div className="container mx-auto row gx-2">
       <div className="row col-md-9">
@@ -34,12 +39,12 @@ const Shope = () => {
         ))}
       </div>
       <div className="col-md-3 order-part">
-          {
-              <Cart cart = {cart}>
-                  <button>Get one free</button>
-                  <button>Order Sumary</button>
-              </Cart>
-          }
+        {
+          <Cart cart={cart}>
+            <button>Get one free</button>
+            <button onClick={navigates}>Order Sumary</button>
+          </Cart>
+        }
       </div>
     </div>
   );

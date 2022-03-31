@@ -1,0 +1,31 @@
+.flex-container {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  background-color: blanchedalmond;
+  padding: 4px 5px;
+  border: 1px solid gray;
+  margin-bottom: 3px;
+  border-radius: 10px;
+}
+.reviwe-iteam-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 15px;
+  width: 100%;
+}
+img {
+  width: 100px;
+  border-radius: 50px;
+}
+p {
+  margin: 0px;
+}
+.trash-btn {
+  font-size: 26px;
+  width: 40px;
+  border-radius: 100px;
+  background-color: red;
+  color: aliceblue;
+}
