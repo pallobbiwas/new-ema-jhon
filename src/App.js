@@ -8,7 +8,7 @@ import Shope from "./components/Shope/Shope";
 
 function App() {
   return (
-    <div>
+    <div className="bg-color">
       <Header />
       <Routes>
         <Route path="/" element={<Shope />}></Route>
