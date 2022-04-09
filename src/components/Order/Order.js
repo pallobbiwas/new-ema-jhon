@@ -12,7 +12,7 @@ const Order = () => {
 
   const navigate = useNavigate();
   const cheekout = () => {
-    navigate("/inventory");
+    navigate("/shiping");
   };
 
   //remove item
@@ -36,7 +36,7 @@ const Order = () => {
       </div>
       <div className="col -md-4 mt-4">
         <Cart cart={cart}>
-          <button onClick={cheekout}>Cheek out</button>
+          <button onClick={cheekout}>proced shiping</button>
         </Cart>
       </div>
     </div>
