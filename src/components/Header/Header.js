@@ -19,6 +19,9 @@ const Header = () => {
           <CoustomLink className="text-white" to="/inventory">
             Inventory
           </CoustomLink>
+          <CoustomLink className="text-white ms-4" to="/login">
+            Login
+          </CoustomLink>
         </div>
       </div>
     </nav>

@@ -33,7 +33,7 @@ const Shope = () => {
   };
   //click handelr for get one
   return (
-    <div className="container mx-auto row gx-2">
+    <div className="container-fluid mx-auto row gx-2">
       <div className="row col-md-9">
         {products.map((pro) => (
           <Product key={pro.id} product={pro} addToCart={addToCart}></Product>
