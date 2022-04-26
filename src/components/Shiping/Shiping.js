@@ -1,38 +1,36 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Shiping = () => {
+  const{cart} = useParams()
+  console.log(cart);
   //email pass feom hoocls/auth
-const[user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   //state
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
-//   const navigate = useNavigate()
-  // onblur for input field
-  const nameBlur = (e) => {
-    setName(e.target.value);
-  };
-  const addressBlur = (e) => {
-    setAddress(e.target.value);
-  };
-  const phoneBlur = (e) => {
-    setPhone(e.target.value);
-  };
-  const emailBlur = (e) => {
-    setEmail(e.target.value);
-  };
   //form submit
   const formSubmit = (e) => {
     e.preventDefault();
-    const shiping = {name, email, address, phone};
-    console.log(shiping);
-  };
-  // take user and load navigated another route
+    const email = e.target.email.value;
+    const name = e.target.name.value;
+    const address = e.target.address.value;
+    const phone = e.target.phone.value;
+    const user = { email, name, address, phone };
+    console.log(user);
 
+    //axsios function
+    axios.post("http://localhost:5000/order", user).then((responce) => {
+      console.log(responce);
+    });
+  };
+
+  if (loading) {
+    return <p>loaddin....!</p>;
+  }
+  // take user and load navigated another route
 
   //return function
   return (
@@ -44,7 +42,6 @@ const[user] = useAuthState(auth);
           <div className="input-group py-4">
             <label htmlFor="email">Email</label>
             <input
-            onBlur={emailBlur}
               value={user?.email}
               className="rounded-3 mb-3"
               type="email"
@@ -53,10 +50,8 @@ const[user] = useAuthState(auth);
               placeholder="email"
               readOnly
             />
-
             <label htmlFor="name">Name</label>
             <input
-              onBlur={nameBlur}
               className="rounded-3 mb-3"
               type="text"
               name="name"
@@ -67,7 +62,6 @@ const[user] = useAuthState(auth);
 
             <label htmlFor="address">Address</label>
             <input
-              onBlur={addressBlur}
               className="rounded-3 mb-4"
               type="text"
               name="address"
@@ -77,7 +71,6 @@ const[user] = useAuthState(auth);
             />
             <label htmlFor="phone">phone</label>
             <input
-              onBlur={phoneBlur}
               className="rounded-3"
               type="text"
               name="phone"

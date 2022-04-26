@@ -19,13 +19,13 @@ const Login = () => {
   };
   //location
   const location = useLocation();
-  const form = location?.state?.form?.pathname || '/'
+  const form = location?.state?.form?.pathname || "/";
   const fromSubmit = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(email, pass);
   };
   if (user) {
-    navigate(form, {replace: true});
+    navigate(form, { replace: true });
   }
 
   return (

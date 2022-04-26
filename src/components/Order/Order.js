@@ -8,7 +8,7 @@ import OrderProduct from "../OrderProduct/OrderProduct";
 
 const Order = () => {
   const [producs] = useProduct();
-  const [cart, setCart] = useCart(producs);
+  const [cart, setCart] = useCart();
 
   const navigate = useNavigate();
   const cheekout = () => {
@@ -20,7 +20,7 @@ const Order = () => {
   const removeItem = (item) => {
     const newItem = cart.filter((c) => c !== item);
     setCart(newItem);
-    removeFromDb(item.id)
+    removeFromDb(item._id)
   };
 
   return (
@@ -28,7 +28,7 @@ const Order = () => {
       <div className="col-md-8">
         {cart.map((p) => (
           <OrderProduct
-            key={p.id}
+            key={p._id}
             product={p}
             removeItem={removeItem}
           ></OrderProduct>
