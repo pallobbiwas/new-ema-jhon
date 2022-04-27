@@ -8,7 +8,7 @@ const useCart = () => {
     const saveCart = [];
     const keys = Object.keys(shopingCart);
     console.log(keys);
-    fetch("http://localhost:5000/products/keys",{
+    fetch("https://cryptic-lake-68819.herokuapp.com/products/keys",{
       method:'POST',
       headers:{
         'content-type': 'application/json'

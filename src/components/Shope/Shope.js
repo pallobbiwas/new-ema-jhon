@@ -13,13 +13,13 @@ const Shope = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products?page=${page}&size=${9}`)
+    fetch(`https://cryptic-lake-68819.herokuapp.com/products?page=${page}&size=${9}`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [page]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/productsCount")
+    fetch("https://cryptic-lake-68819.herokuapp.com/productsCount")
       .then((res) => res.json())
       .then((data) => {
         const count = data.count;

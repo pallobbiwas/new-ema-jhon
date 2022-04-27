@@ -19,7 +19,7 @@ const Shiping = () => {
     console.log(user);
 
     //axsios function
-    axios.post("http://localhost:5000/order", user).then((responce) => {
+    axios.post("https://cryptic-lake-68819.herokuapp.com/order", user).then((responce) => {
       console.log(responce.data);
     });
   };
