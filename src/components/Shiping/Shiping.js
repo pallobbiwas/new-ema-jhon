@@ -1,12 +1,9 @@
 import axios from "axios";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Shiping = () => {
-  const{cart} = useParams()
-  console.log(cart);
   //email pass feom hoocls/auth
   const [user, loading] = useAuthState(auth);
 
@@ -23,7 +20,7 @@ const Shiping = () => {
 
     //axsios function
     axios.post("http://localhost:5000/order", user).then((responce) => {
-      console.log(responce);
+      console.log(responce.data);
     });
   };
 

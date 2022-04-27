@@ -34,17 +34,17 @@ const Shope = () => {
   //click handeler for add to cart
   const addToCart = (item) => {
     let newCart = [];
-    const exist = cart.find((p) => p._id === item._id);
+    const exist = cart.find((p) => p.id === item.id);
     if (!exist) {
       item.quantity = 1;
       newCart = [...cart, item];
     } else {
-      const rest = cart.filter((p) => p._id !== item._id);
+      const rest = cart.filter((p) => p.id !== item.id);
       exist.quantity = exist.quantity + 1;
       newCart = [...rest, exist];
     }
     setCart(newCart);
-    addToDb(item._id);
+    addToDb(item.id);
   };
   const navigated = useNavigate();
   const navigates = () => {
